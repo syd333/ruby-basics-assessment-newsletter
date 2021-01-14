@@ -30,31 +30,60 @@ ARTICLES = [
 def calculate_recipients
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
+
+  # if element in subscribers matches the element in unsubsribed remove element
+  # select will return new array with elements left 
+#if subscrib[element] == unsubsribed[element] -- how to get into unsub array?
+# use include? method 
+  #delete subscrib[element]
+  #new_array << subscrib 
+  #new_array = []
+  #SUBSCRIBERS.each do |email|?
+#????
+    SUBSCRIBERS.each do |email|
+      UNSUBSCRIBED.include?(email)
+    end
 end
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  #string to integer??? what am i trying to return? 
+ ARTICLES.first(number_of_articles)
 end
 
 def print_recipients
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
+
+  #use join to put into string
+ puts calculate_recipients.join(', ')
+
 end
 
 def print_one_article(article)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
+
+  # could use \n?
+  puts "TITLE"
+  puts "by: AUTHOR"
+  puts "TEXT"
+  puts ""
 end
 
 def print_many_articles(articles)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
+
+  #first method returns first element ?? what other methods?
+  print_one_article(articles)
 end
 
 def format_campus_location(campus)
-  "Flatiron #{campus["name"]}"
+  campus.each do |key, value|
+  end
+  "Flatiron #{campus[:name]}"
 end
 
 def format_subject
@@ -79,9 +108,7 @@ def print_newsletter(number)
   articles = first_n_articles(number)
   print_many_articles(articles)
   puts format_footer(CAMPUS)
-
   end
-end
 
 def run
   # We want our program to print three articles by default,
